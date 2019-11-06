@@ -1,4 +1,7 @@
-name: Minerynthe
+name: spawnObject
 version: ${project.version}
 main: fr.minerynthe.minerynthe.Main
 api-version: 1.13
+commands:
+  yolo:
+    description: test
