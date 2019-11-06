@@ -1,0 +1,4 @@
+name: Minerynthe
+version: ${project.version}
+main: fr.minerynthe.minerynthe.Main
+api-version: 1.13
