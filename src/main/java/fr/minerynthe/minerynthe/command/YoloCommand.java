@@ -1,5 +1,6 @@
 package fr.minerynthe.minerynthe.command;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -9,6 +10,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -31,7 +33,16 @@ public class YoloCommand implements CommandExecutor {
         Random rand = new Random();
         int radius = 150;  // distance de la zone de détection
         World world = centreDeLaZone.getWorld();
-        ItemStack drop = new ItemStack(Material.EGG, 1);
+
+        ItemStack stack = new ItemStack(Material.EGG, 1);
+        ItemMeta meta = stack.getItemMeta();
+        ArrayList<String> lore = new ArrayList<String>();
+        lore.add("Lourd");
+        lore.add("Toujours plus");
+        meta.setLore(lore);
+        meta.setDisplayName(ChatColor.DARK_RED + "Oeuf magique");
+        stack.setItemMeta(meta);
+
 
         for (int x = -radius; x < radius; x++) {
             for (int y = -radius; y < radius; y++) {
@@ -52,7 +63,7 @@ public class YoloCommand implements CommandExecutor {
         }
 
         for (Block block : listeBlocks) {
-            world.dropItem((block).getLocation().add(0, 1, 0), drop);
+            world.dropItem((block).getLocation().add(0, 1, 0), stack);
         }
     }
 }
