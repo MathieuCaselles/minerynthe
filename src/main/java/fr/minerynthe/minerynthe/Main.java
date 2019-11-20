@@ -1,5 +1,6 @@
 package fr.minerynthe.minerynthe;
 
+import fr.minerynthe.minerynthe.command.EntityCommand;
 import fr.minerynthe.minerynthe.command.YoloCommand;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -13,6 +14,7 @@ public final class Main extends JavaPlugin {
         System.out.println("test");
         getLogger().info("Plugin démarré !");
         getCommand("yolo").setExecutor(new YoloCommand());
+        getCommand("item").setExecutor(new EntityCommand());
 
     }
 
