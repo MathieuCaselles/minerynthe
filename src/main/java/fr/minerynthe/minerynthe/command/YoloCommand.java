@@ -1,5 +1,6 @@
 package fr.minerynthe.minerynthe.command;
 
+import fr.minerynthe.minerynthe.utils.ItemUtil;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -14,6 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 
@@ -31,20 +33,12 @@ public class YoloCommand implements CommandExecutor {
 
     private void spawnItemRandom(Location centreDeLaZone) {
         ArrayList<Block> listeBlocks = new ArrayList<Block>();
+
         Random rand = new Random();
         int radius = 150;  // distance de la zone de détection
         World world = centreDeLaZone.getWorld();
 
-        ItemStack stack = new ItemStack(Material.DIAMOND_SWORD, 1);
-        stack.addUnsafeEnchantment(Enchantment.KNOCKBACK, 6);
-        ItemMeta meta = stack.getItemMeta();
-        ArrayList<String> lore = new ArrayList<String>();
-        lore.add("§aLourd");
-        lore.add("§6§lToujours plus");
-        meta.setLore(lore);
-        meta.setDisplayName(ChatColor.DARK_RED + "§kEpee magique");
-        stack.setItemMeta(meta);
-
+        ItemStack stack = ItemUtil.createItemStack(Material.DIAMOND_SWORD, 1, ChatColor.DARK_RED + "§kEpee magique", Arrays.asList("§aLourd", "§6§lToujours plus"), Enchantment.KNOCKBACK, 6);
 
         for (int x = -radius; x < radius; x++) {
             for (int y = -radius; y < radius; y++) {
