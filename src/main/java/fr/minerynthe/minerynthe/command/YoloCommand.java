@@ -61,5 +61,6 @@ public class YoloCommand implements CommandExecutor {
         for (Block block : listeBlocks) {
             world.dropItem((block).getLocation().add(0, 1, 0), stack);
         }
+
     }
 }
