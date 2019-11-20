@@ -1,0 +1,9 @@
+name: spawnObject
+version: 1.0
+main: fr.minerynthe.minerynthe.Main
+api-version: 1.13
+commands:
+  yolo:
+    description: test
+  item:
+    description: Crash
