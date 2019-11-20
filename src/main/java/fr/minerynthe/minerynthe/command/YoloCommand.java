@@ -8,6 +8,7 @@ import org.bukkit.block.Block;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -34,13 +35,14 @@ public class YoloCommand implements CommandExecutor {
         int radius = 150;  // distance de la zone de détection
         World world = centreDeLaZone.getWorld();
 
-        ItemStack stack = new ItemStack(Material.EGG, 1);
+        ItemStack stack = new ItemStack(Material.DIAMOND_SWORD, 1);
+        stack.addUnsafeEnchantment(Enchantment.KNOCKBACK, 6);
         ItemMeta meta = stack.getItemMeta();
         ArrayList<String> lore = new ArrayList<String>();
-        lore.add("Lourd");
-        lore.add("Toujours plus");
+        lore.add("§aLourd");
+        lore.add("§6§lToujours plus");
         meta.setLore(lore);
-        meta.setDisplayName(ChatColor.DARK_RED + "Oeuf magique");
+        meta.setDisplayName(ChatColor.DARK_RED + "§kEpee magique");
         stack.setItemMeta(meta);
 
 
